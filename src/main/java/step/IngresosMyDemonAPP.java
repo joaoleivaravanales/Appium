@@ -25,8 +25,44 @@ public class IngresosMyDemonAPP {
         mydemonapp.configuracionMobile();
     }
 
-    @When("Me encuentro en el home del aplicativo")
-    public void meEncuentroEnElHomeDelAplicativo() {
+
+    @When("Selecciono el acordeon posicionado en la perte superior izquierda")
+    public void seleccionoElAcordeonPosicionadoEnLaPerteSuperiorIzquierda() {
         mydemonapp.abrirMenu();
+    }
+
+    @And("Selecciono la opcion de {string} dentro del acordeon")
+    public void seleccionoLaOpcionDeDentroDelAcordeon(String arg0) {
+    mydemonapp.opcionesDePresionar(arg0);
+    }
+
+    @And("Valido el titulo de la pagina {string}")
+    public void validoElTituloDeLaPagina(String arg0) {
+        mydemonapp.validacionesDeTextos(arg0);
+    }
+
+    @And("Valido el {string} de leyenda del cuerpo abajo del Login")
+    public void validoElDeLeyendaDelCuerpoAbajoDelLogin(String arg0) {
+        mydemonapp.validacionesDeTextos(arg0);
+    }
+
+    @And("Valido que se encuentre el texto {string} arriba de la caja de cuadro")
+    public void validoQueSeEncuentreElTextoArribaDeLaCajaDeCuadro(String arg0) {
+        mydemonapp.validacionesDeTextos(arg0);
+    }
+
+    @And("Ingreso el {string} en la caja de texto junto a la {string}")
+    public void ingresoElEnLaCajaDeTextoJuntoALa(String arg0, String arg1) {
+        mydemonapp.ingresoDeDatosDos(arg0,arg1);
+    }
+
+    @And("Presiono el boton de {string} dentro de la pagina")
+    public void presionoElBotonDeDentroDeLaPagina(String arg0) {
+        mydemonapp.opcionesDePresionar(arg0);
+    }
+
+    @Then("Valido el texto de {string}")
+    public void validoElTextoDe(String arg0) {
+        mydemonapp.validacionesDeTextos(arg0);
     }
 }
