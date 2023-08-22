@@ -30,27 +30,32 @@ import step.IngresosMyDemonAPP;
 public class myDemonApp  {
 
     AndroidDriver driver;
+
+    public myDemonApp() {
+        this.driver = driver;
+        PageFactory.initElements(new AppiumFieldDecorator(driver, Duration.ofSeconds(5)),this);
+    }
     @AndroidFindBy(xpath = "//android.view.ViewGroup[@content-desc=\"open menu\"]")
     public WebElement openMenu;
 
     @AndroidFindBy (xpath = "(//android.view.ViewGroup[@content-desc=\"store item\"])[3]/android.view.ViewGroup[1]/android.widget.ImageView")
     protected WebElement clicLoginMenu;
 
-   // @Before
-   // public void configuracionMobile() throws MalformedURLException {
-   //     DesiredCapabilities cap = new DesiredCapabilities();
-   //     cap.setCapability("deviceName","Pixel 4 API 28");
-   //     cap.setCapability("platformName","Android");
-   //     cap.setCapability("app","C:\\Users\\Jooao\\Desktop\\Joao\\PrimerEjemplo\\src\\main\\aplicacion\\Android-MyDemoAppRN.1.3.0.build-244.apk");
-    //    cap.setCapability("udid","emulator-5554");
-   //     cap.setCapability("platformVersion","9");
-   //     driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), cap);
-   // }
+    @Before
+    public void configuracionMobile() throws MalformedURLException {
+        DesiredCapabilities cap = new DesiredCapabilities();
+        cap.setCapability("deviceName","Pixel 4 API 28");
+        cap.setCapability("platformName","Android");
+        cap.setCapability("app","C:\\Users\\Jooao\\Desktop\\Joao\\PrimerEjemplo\\src\\main\\aplicacion\\Android-MyDemoAppRN.1.3.0.build-244.apk");
+       cap.setCapability("udid","emulator-5554");
+        cap.setCapability("platformVersion","9");
+        driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), cap);
+    }
 
     public void abrirMenu(){
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        openMenu.click();
-        //driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        //openMenu.click();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(AppiumBy.xpath("//android.view.ViewGroup[@content-desc=\"open menu\"]")).click();
     }
     public void opcionesDePresionar(String arg0) {

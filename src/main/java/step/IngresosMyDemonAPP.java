@@ -3,26 +3,27 @@ package step;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import net.serenitybdd.screenplay.actors.OnStage;
+import net.serenitybdd.screenplay.actors.OnlineCast;
+import org.openqa.selenium.support.PageFactory;
 import pages.myDemonApp;
 
 import java.net.MalformedURLException;
+import java.time.Duration;
 
 
 public class IngresosMyDemonAPP {
-    AppiumDriver driver;
-    myDemonApp mydemonapp;
+    myDemonApp mydemonapp = new myDemonApp();
 
-    //public IngresosMyDemonAPP() {
-    //    mydemonapp = new myDemonApp((AndroidDriver) driver);
-    //}
 
     @Given("Cuando ingreso al aplicativo MyDemonAPP")
     public void cuandoIngresoAlAplicativoMyDemonAPP() throws MalformedURLException {
-       // mydemonapp.configuracionMobile();
+        mydemonapp.configuracionMobile();
     }
 
     @When("Selecciono el acordeon posicionado en la perte superior izquierda")

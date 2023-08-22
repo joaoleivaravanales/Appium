@@ -7,9 +7,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {"pretty"},
         features = "src/main/java/feature/",
-        glue = "com.mobile.automation.framework.step",
+        glue = "step",
         tags = "@Caso001"
-
 )
 public class CucumberRun {
 }

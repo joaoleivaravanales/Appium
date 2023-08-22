@@ -12,6 +12,9 @@ import java.net.URL;
 import java.time.Duration;
 
 public class DriverSetupClass {
+
+    AndroidDriver driver;
+
     @Before
     public void configuracionMobile() throws MalformedURLException {
         DesiredCapabilities cap = new DesiredCapabilities();
