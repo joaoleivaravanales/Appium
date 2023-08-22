@@ -31,8 +31,6 @@ public class myDemonApp  {
 
     private WebDriver driver;
 
-    private AppiumDriverLocalService service;
-
     public myDemonApp(AndroidDriver driver){
         this.driver = driver;
         //PageFactory.initElements(new AppiumFieldDecorator(driver), this);
@@ -41,7 +39,7 @@ public class myDemonApp  {
     }
 
     @AndroidFindBy(xpath = "//android.view.ViewGroup[@content-desc=\"open menu\"]")
-    public RemoteWebElement openMenu;
+    public WebElement openMenu;
 
     @AndroidFindBy (xpath = "(//android.view.ViewGroup[@content-desc=\"store item\"])[3]/android.view.ViewGroup[1]/android.widget.ImageView")
     protected WebElement clicLoginMenu;
@@ -59,8 +57,8 @@ public class myDemonApp  {
 
     public void abrirMenu(){
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        //openMenu.click();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        openMenu.click();
+        //driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(AppiumBy.xpath("//android.view.ViewGroup[@content-desc=\"open menu\"]")).click();
     }
     public void opcionesDePresionar(String arg0) {
@@ -106,19 +104,9 @@ public class myDemonApp  {
         }
     }
 
-    public void ingresoDeDatosDos(String arg0, String arg1) {
-        switch (arg0){
-            case "Username":
-                driver.findElement(AppiumBy.accessibilityId("Username input field")).sendKeys(arg0);
-                driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-                break;
-        }
-        switch (arg1){
-            case "Password":
-                driver.findElement(AppiumBy.accessibilityId("Password input field")).sendKeys(arg1);
-                driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-                break;
-        }
-
+    public void ingresoDeDatosLogin(String arg0, String arg1) {
+        driver.findElement(AppiumBy.accessibilityId("Username input field")).sendKeys(arg0);
+        driver.findElement(AppiumBy.accessibilityId("Password input field")).sendKeys(arg1);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 }

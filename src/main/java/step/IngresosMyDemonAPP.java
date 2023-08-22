@@ -53,7 +53,7 @@ public class IngresosMyDemonAPP {
 
     @And("Ingreso el {string} en la caja de texto junto a la {string}")
     public void ingresoElEnLaCajaDeTextoJuntoALa(String arg0, String arg1) {
-        mydemonapp.ingresoDeDatosDos(arg0,arg1);
+        mydemonapp.ingresoDeDatosLogin(arg0,arg1);
     }
 
     @And("Presiono el boton de {string} dentro de la pagina")
