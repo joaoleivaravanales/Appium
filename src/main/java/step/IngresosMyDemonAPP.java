@@ -25,7 +25,6 @@ public class IngresosMyDemonAPP {
         mydemonapp.configuracionMobile();
     }
 
-
     @When("Selecciono el acordeon posicionado en la perte superior izquierda")
     public void seleccionoElAcordeonPosicionadoEnLaPerteSuperiorIzquierda() {
         mydemonapp.abrirMenu();
