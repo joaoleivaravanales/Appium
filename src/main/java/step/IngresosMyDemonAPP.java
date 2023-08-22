@@ -16,13 +16,13 @@ public class IngresosMyDemonAPP {
     AppiumDriver driver;
     myDemonApp mydemonapp;
 
-    public IngresosMyDemonAPP() {
-        mydemonapp = new myDemonApp((AndroidDriver) driver);
-    }
+    //public IngresosMyDemonAPP() {
+    //    mydemonapp = new myDemonApp((AndroidDriver) driver);
+    //}
 
     @Given("Cuando ingreso al aplicativo MyDemonAPP")
     public void cuandoIngresoAlAplicativoMyDemonAPP() throws MalformedURLException {
-        mydemonapp.configuracionMobile();
+       // mydemonapp.configuracionMobile();
     }
 
     @When("Selecciono el acordeon posicionado en la perte superior izquierda")
