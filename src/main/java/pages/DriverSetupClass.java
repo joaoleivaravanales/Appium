@@ -13,7 +13,7 @@ import java.time.Duration;
 
 public class DriverSetupClass {
 
-    AndroidDriver driver;
+    public static AndroidDriver driver;
 
     @Before
     public void configuracionMobile() throws MalformedURLException {

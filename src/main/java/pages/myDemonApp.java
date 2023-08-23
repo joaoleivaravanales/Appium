@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -29,13 +30,12 @@ import step.IngresosMyDemonAPP;
 
 public class myDemonApp  {
 
-    AndroidDriver driver;
+    public static AndroidDriver driver;
 
     public myDemonApp() {
-        this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver, Duration.ofSeconds(5)),this);
     }
-    @AndroidFindBy(xpath = "//android.view.ViewGroup[@content-desc=\"open menu\"]")
+    @FindBy(xpath = "//android.view.ViewGroup[@content-desc=\"open menu\"]")
     public WebElement openMenu;
 
     @AndroidFindBy (xpath = "(//android.view.ViewGroup[@content-desc=\"store item\"])[3]/android.view.ViewGroup[1]/android.widget.ImageView")
@@ -54,9 +54,9 @@ public class myDemonApp  {
 
     public void abrirMenu(){
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        //openMenu.click();
+        openMenu.click();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.findElement(AppiumBy.xpath("//android.view.ViewGroup[@content-desc=\"open menu\"]")).click();
+        //driver.findElement(AppiumBy.xpath("//android.view.ViewGroup[@content-desc=\"open menu\"]")).click();
     }
     public void opcionesDePresionar(String arg0) {
         switch (arg0) {

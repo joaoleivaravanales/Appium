@@ -8,8 +8,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import net.serenitybdd.screenplay.actors.OnStage;
-import net.serenitybdd.screenplay.actors.OnlineCast;
 import org.openqa.selenium.support.PageFactory;
 import pages.myDemonApp;
 
@@ -18,6 +16,8 @@ import java.time.Duration;
 
 
 public class IngresosMyDemonAPP {
+
+    public static AndroidDriver driver;
     myDemonApp mydemonapp = new myDemonApp();
 
 
