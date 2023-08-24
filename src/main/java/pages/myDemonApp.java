@@ -9,23 +9,19 @@ import org.openqa.selenium.support.FindBy;
 
 public class myDemonApp extends PageObject {
     @AndroidFindBy(xpath = "//android.view.ViewGroup[@content-desc=\"open menu\"]")
-    public WebElementFacade openMenu;
+    public WebElement openMenu;
 
     @AndroidFindBy (xpath = "(//android.view.ViewGroup[@content-desc=\"store item\"])[3]/android.view.ViewGroup[1]/android.widget.ImageView")
     protected WebElement clicLoginMenu;
 
 
     public void abrirMenu(){
-        //driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         openMenu.click();
-        //driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        //driver.findElement(AppiumBy.xpath("//android.view.ViewGroup[@content-desc=\"open menu\"]")).click();
-    }
+  }
     public void opcionesDePresionar(String arg0) {
         switch (arg0) {
             case "Log In":
-              //  driver.findElement(AppiumBy.xpath("(//android.view.ViewGroup[@content-desc=\"store item\"])[3]/android.view.ViewGroup[1]/android.widget.ImageView")).click();
-              //  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                clicLoginMenu.click();
                 break;
             case "Login":
                 // driver.findElement(AppiumBy.accessibilityId("Login button")).click();

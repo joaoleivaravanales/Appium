@@ -23,7 +23,7 @@ public class IngresosMyDemonAPP {
 
     @Given("Cuando ingreso al aplicativo MyDemonAPP")
     public void cuandoIngresoAlAplicativoMyDemonAPP() throws MalformedURLException {
-       // mydemonapp.configuracionMobile();
+
     }
 
     @When("Selecciono el acordeon posicionado en la perte superior izquierda")
