@@ -33,7 +33,7 @@ public class IngresosMyDemonAPP {
 
     @And("Selecciono la opcion de {string} dentro del acordeon")
     public void seleccionoLaOpcionDeDentroDelAcordeon(String arg0) {
-    mydemonapp.opcionesDePresionar(arg0);
+        mydemonapp.opcionesDePresionar(arg0);
     }
 
     @And("Valido el titulo de la pagina {string}")
