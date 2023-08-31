@@ -72,22 +72,29 @@ public class IngresosMyDemonAPP {
     }
 
     @And("Valido los siguientes textos")
-    public void validoLosSiguientesTextos(DataTable campos) {
-       validoCampos(campos);
+    public void validoLosSiguientesTextos(DataTable dataTable) {
+       validoCampos(dataTable);
     }
 
 
-    protected void validoCampos(DataTable campo) {
+    protected void validoCampos(DataTable dataTable) {
         try {
-            List<Map<String, String>> rows = campo.asMaps(String.class, String.class);
-            for (Map<String, String> row : rows) {
-                String nombreDelCampo = row.get("campo");
-                WebElement validacionesDTxt = driver.findElement(By.xpath("(//android.widget.TextView[@text='"+nombreDelCampo+"'])"));
-                String textoEsperado = row.get("rows");
-                Assert.assertEquals(textoEsperado, validacionesDTxt.getText());
-            }
+          List<Map<String, String>> rows = dataTable.asMaps(String.class, String.class);
+                for (Map<String, String> row : rows) {
+                    String columnName = row.get("campo"); // Replace "Column" with the actual column name
+                    String expectedValue = row.get(rows); // Replace "ExpectedValue" with the actual column name
+                    String xpath = getXPathForColumnName(columnName); // Replace with your method to generate XPaths
+                    WebElement element = driver.findElement(By.xpath(xpath));
+                    String actualValue = element.getText();
+                    System.out.println(actualValue);
+                    System.out.println(expectedValue);
+                    Assert.assertEquals(actualValue, expectedValue);
+                }
         } catch (Exception e) {
         }
+    }
+    public String getXPathForColumnName(String campo) {
+     return "//android.widget.TextView[@text='" + campo + "']";
     }
 
 }
