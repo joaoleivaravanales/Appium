@@ -9,6 +9,9 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import pages.myDemonApp;
 import java.net.MalformedURLException;
@@ -78,8 +81,10 @@ public class IngresosMyDemonAPP {
         try {
             List<Map<String, String>> rows = campo.asMaps(String.class, String.class);
             for (Map<String, String> row : rows) {
-                String name = row.get("textos");
-                //validaElemento("//*[contains (text(),'" + name + "')]", 3);
+                String nombreDelCampo = row.get("campo");
+                WebElement validacionesDTxt = driver.findElement(By.xpath("(//android.widget.TextView[@text='"+nombreDelCampo+"'])"));
+                String textoEsperado = row.get("rows");
+                Assert.assertEquals(textoEsperado, validacionesDTxt.getText());
             }
         } catch (Exception e) {
         }
