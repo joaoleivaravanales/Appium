@@ -9,7 +9,7 @@ import net.serenitybdd.cucumber.CucumberWithSerenity;
         plugin = {"pretty"},
         features = "src/main/resources/feature",
         glue = "step",
-        tags = "@Caso002"
+        tags = "@Caso003,@Caso002"
 )
 public class CucumberRun {
 

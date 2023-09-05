@@ -18,6 +18,7 @@ import java.net.MalformedURLException;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
+import java.util.concurrent.TimeUnit;
 
 
 public class IngresosMyDemonAPP {
@@ -79,5 +80,20 @@ public class IngresosMyDemonAPP {
     @Then("Valido que redireccione a la pagina de {string}")
     public void validoQueRedireccioneALaPaginaDe(String arg0) {
         mydemonapp.validacionesDeTextos(arg0);
+    }
+
+    @And("Valido los siguientes textos en pagina TextView")
+    public void validoLosSiguientesTextosEnPaginaTextView(DataTable campo) {
+        mydemonapp.validoCamposPantallTextView(campo);
+    }
+
+    @And("Ingreso en el campo la {string}")
+    public void ingresoEnElCampoLa(String arg0) {
+        mydemonapp.ingresoDatoURL(arg0);
+    }
+
+    @And("Presiono el boton de {string}")
+    public void presionoElBotonDe(String arg0) {
+        mydemonapp.opcionesDePresionar(arg0);
     }
 }

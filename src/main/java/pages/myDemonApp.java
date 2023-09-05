@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 import static com.ibm.icu.impl.ValidIdentifiers.Datatype.unit;
 
@@ -59,7 +60,20 @@ public class myDemonApp extends PageObject {
     @AndroidFindBy(xpath = "(//android.widget.TextView[@text='Products'])")
     protected WebElement txtProduct;
 
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@text='Webview'])")
+    protected WebElement btnTextView;
 
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@text='URL'])")
+    protected WebElement txtURL;
+
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@text='Enter an HTTPS url.'])")
+    protected WebElement txtEnterHTTP;
+
+    @AndroidFindBy(accessibility = "URL input field")
+    protected WebElement txtboxURL;
+
+    @AndroidFindBy(accessibility = "Go To Site button")
+    protected WebElement btnGoToSite;
 
 
     public void abrirMenu(){
@@ -72,6 +86,12 @@ public class myDemonApp extends PageObject {
                 break;
             case "Login":
                 btnLoginPage.click();
+                break;
+            case "Webview":
+                btnTextView.click();
+                break;
+            case "Go To Site":
+                btnGoToSite.click();
                 break;
         }
     }
@@ -124,4 +144,29 @@ public class myDemonApp extends PageObject {
             System.out.println("ERROR AQUI: " + e.getMessage());
         }
 }
+
+    public void validoCamposPantallTextView(DataTable campo) {
+        try {
+            List<Map<String, String>> rows = campo.asMaps(String.class, String.class);
+            for (Map<String, String> row : rows) {
+                String name = row.get("campo");
+                if (name.equals(btnTextView.getText())){
+                    Assert.assertEquals(name,btnTextView.getText());
+                }else if (name.equals(txtURL.getText())){
+                    Assert.assertEquals(name,txtURL.getText());
+                }else if (name.equals(txtEnterHTTP.getText())){
+                    Assert.assertEquals(name,txtEnterHTTP.getText());
+                }else{
+                    String Error = "FailedText";
+                    Assert.assertEquals(Error,"ERROR");
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("ERROR AQUI: " + e.getMessage());
+        }
     }
+
+    public void ingresoDatoURL(String arg0) {
+        txtboxURL.sendKeys(arg0);
+    }
+}
