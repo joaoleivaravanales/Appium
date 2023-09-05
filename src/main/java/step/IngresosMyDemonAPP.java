@@ -1,23 +1,23 @@
 package step;
 
 
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
+import net.thucydides.core.requirements.reports.ScenarioOutcome;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 import pages.myDemonApp;
+
+import java.io.Console;
 import java.net.MalformedURLException;
-import java.time.Duration;
 import java.util.List;
 import java.util.Map;
+import java.util.NoSuchElementException;
 
 
 public class IngresosMyDemonAPP {
@@ -72,29 +72,12 @@ public class IngresosMyDemonAPP {
     }
 
     @And("Valido los siguientes textos")
-    public void validoLosSiguientesTextos(DataTable dataTable) {
-       validoCampos(dataTable);
+    public void validoLosSiguientesTextos(DataTable campo) {
+       mydemonapp.validoCampos(campo);
     }
 
-
-    protected void validoCampos(DataTable dataTable) {
-        try {
-          List<Map<String, String>> rows = dataTable.asMaps(String.class, String.class);
-                for (Map<String, String> row : rows) {
-                    String columnName = row.get("campo"); // Replace "Column" with the actual column name
-                    String expectedValue = row.get(rows); // Replace "ExpectedValue" with the actual column name
-                    String xpath = getXPathForColumnName(columnName); // Replace with your method to generate XPaths
-                    WebElement element = driver.findElement(By.xpath(xpath));
-                    String actualValue = element.getText();
-                    System.out.println(actualValue);
-                    System.out.println(expectedValue);
-                    Assert.assertEquals(actualValue, expectedValue);
-                }
-        } catch (Exception e) {
-        }
+    @Then("Valido que redireccione a la pagina de {string}")
+    public void validoQueRedireccioneALaPaginaDe(String arg0) {
+        mydemonapp.validacionesDeTextos(arg0);
     }
-    public String getXPathForColumnName(String campo) {
-     return "//android.widget.TextView[@text='" + campo + "']";
-    }
-
 }

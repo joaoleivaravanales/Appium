@@ -1,14 +1,30 @@
 package pages;
 
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.cucumber.datatable.DataTable;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.opentest4j.AssertionFailedError;
+
+import java.time.Duration;
+import java.util.List;
+import java.util.Map;
+import java.util.NoSuchElementException;
+import java.util.Objects;
+
+import static com.ibm.icu.impl.ValidIdentifiers.Datatype.unit;
 
 
 public class myDemonApp extends PageObject {
+
+    AndroidDriver driver;
+
     @AndroidFindBy(xpath = "//android.view.ViewGroup[@content-desc=\"open menu\"]")
     protected WebElement openMenu;
 
@@ -20,6 +36,7 @@ public class myDemonApp extends PageObject {
 
     @AndroidFindBy(xpath = "(//*[@text='Select a username and password from the list below, or click on the usernames to automatically populate the username and password.'])")
     protected WebElement txtLeyendaText;
+
 
     @AndroidFindBy(xpath = "(//android.widget.TextView[@text='Username'])")
     protected WebElement textoUserName;
@@ -38,6 +55,9 @@ public class myDemonApp extends PageObject {
 
     @AndroidFindBy(accessibility = "Login button")
     protected WebElement btnLoginPage;
+
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@text='Products'])")
+    protected WebElement txtProduct;
 
 
 
@@ -73,6 +93,8 @@ public class myDemonApp extends PageObject {
             case "Login Incorrecto":
                 Assert.assertEquals("Provided credentials do not match any user in this service.",textoCredIncorrectas.getText());
                 break;
+            case "Products":
+                Assert.assertEquals("Products",txtProduct.getText());
         }
     }
 
@@ -80,4 +102,26 @@ public class myDemonApp extends PageObject {
         txtUsrName.sendKeys(arg0);
         txtPassword.sendKeys(arg1);
     }
+
+
+    public void validoCampos(DataTable campo) {
+        try {
+            List<Map<String, String>> rows = campo.asMaps(String.class, String.class);
+            for (Map<String, String> row : rows) {
+                String name = row.get("campo");
+                if (name.equals(textoLoginTitle.getText())){
+                    Assert.assertEquals(name,textoLoginTitle.getText());
+                }else if (name.equals(textoUserName.getText())){
+                    Assert.assertEquals(name,textoUserName.getText());
+                }else if (name.equals(textoPassword.getText())){
+                    Assert.assertEquals(name,textoPassword.getText());
+                }else{
+                    String Error = "FailedText";
+                    Assert.assertEquals(Error,"ERROR");
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("ERROR AQUI: " + e.getMessage());
+        }
 }
+    }

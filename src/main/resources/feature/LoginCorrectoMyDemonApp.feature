@@ -11,6 +11,7 @@ Feature: Realizar ingreso correcto a aplicativo MyDemonAPP
     |Password|
     And Ingreso el "<Username>" en la caja de texto junto a la "<Password>"
     And Presiono el boton de "Login" dentro de la pagina
+    Then Valido que redireccione a la pagina de "Products"
 
     Examples:
       | Username | Password |
