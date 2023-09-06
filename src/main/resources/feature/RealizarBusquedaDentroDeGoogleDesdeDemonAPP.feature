@@ -1,4 +1,4 @@
-@Caso003
+@Caso004
 Feature: Ingresar a Webview en Menu Lateral
   Scenario Outline: Ingresar de forma correcta a Menu opcion WebView
     Given Cuando ingreso al aplicativo MyDemonAPP
@@ -14,7 +14,7 @@ Feature: Ingresar a Webview en Menu Lateral
     And Visualizo que estoy en la pagina de "google"
     And Ingreso texto "Appium espanol" en el buscador
     And Presiono boton de busqueda "Lupa" en la pagina de google
-
+    And Me posiciono con el scroll en un texto en especifico
 
     Examples:
       | URL |

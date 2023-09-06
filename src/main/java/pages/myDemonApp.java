@@ -1,25 +1,18 @@
 package pages;
 
+import io.appium.java_client.AppiumBy;
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.cucumber.datatable.DataTable;
+import net.serenitybdd.core.Serenity;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.opentest4j.AssertionFailedError;
-
-import java.time.Duration;
 import java.util.List;
 import java.util.Map;
-import java.util.NoSuchElementException;
-import java.util.Objects;
-import java.util.concurrent.TimeUnit;
-
-import static com.ibm.icu.impl.ValidIdentifiers.Datatype.unit;
 
 
 public class myDemonApp extends PageObject {
@@ -75,6 +68,22 @@ public class myDemonApp extends PageObject {
     @AndroidFindBy(accessibility = "Go To Site button")
     protected WebElement btnGoToSite;
 
+    @AndroidFindBy(xpath = "(//android.widget.Image[@text = 'googlelogo_tablet_tier1_hp_color_183x64dp'])")
+    protected WebElement logoGoogle;
+
+
+    @AndroidFindBy(className ="android.widget.EditText")
+    protected WebElement barraGoogle;
+
+    @AndroidFindBy(className = "android.widget.Button")
+    protected WebElement btnLupaGoogle;
+
+    @AndroidFindBy(xpath = "(//android.view.View[@text = 'appium - Testing en Español josepablosarco.wordpress.com › webdriver'])")
+    protected WebElement pageGoogle;
+
+
+
+
 
     public void abrirMenu(){
         openMenu.click();
@@ -92,6 +101,9 @@ public class myDemonApp extends PageObject {
                 break;
             case "Go To Site":
                 btnGoToSite.click();
+                break;
+            case "Lupa":
+                btnLupaGoogle.click();
                 break;
         }
     }
@@ -115,6 +127,14 @@ public class myDemonApp extends PageObject {
                 break;
             case "Products":
                 Assert.assertEquals("Products",txtProduct.getText());
+                break;
+            case "google":
+                logoGoogle.isDisplayed();
+                break;
+            case "Appium espanol":
+                barraGoogle.sendKeys(arg0);
+                break;
+
         }
     }
 
@@ -168,5 +188,13 @@ public class myDemonApp extends PageObject {
 
     public void ingresoDatoURL(String arg0) {
         txtboxURL.sendKeys(arg0);
+    }
+
+    public void scrollText() {
+        String textToScroll = "appium - Testing en Español josepablosarco.wordpress.com › webdriver";
+        MobileBy scrollable = (MobileBy) MobileBy.AndroidUIAutomator(
+                "new UiScrollable(new UiSelector().scrollIntoView(new UiSelector().textContains(\"" + textToScroll + "\")))"
+        );
+
     }
 }

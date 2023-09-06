@@ -96,4 +96,24 @@ public class IngresosMyDemonAPP {
     public void presionoElBotonDe(String arg0) {
         mydemonapp.opcionesDePresionar(arg0);
     }
+
+    @And("Visualizo que estoy en la pagina de {string}")
+    public void visualizoQueEstoyEnLaPaginaDe(String arg0) {
+        mydemonapp.validacionesDeTextos(arg0);
+    }
+
+    @And("Ingreso texto {string} en el buscador")
+    public void ingresoTextoEnElBuscador(String arg0) {
+        mydemonapp.validacionesDeTextos(arg0);
+    }
+
+    @And("Presiono boton de busqueda {string} en la pagina de google")
+    public void presionoBotonDeBusquedaEnLaPaginaDeGoogle(String arg0) {
+        mydemonapp.opcionesDePresionar(arg0);
+    }
+
+    @And("Me posiciono con el scroll en un texto en especifico")
+    public void mePosicionoConElScrollEnUnTextoEnEspecifico() {
+        mydemonapp.scrollText();
+    }
 }
