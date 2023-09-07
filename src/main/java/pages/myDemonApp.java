@@ -11,8 +11,12 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 
 public class myDemonApp extends PageObject {
@@ -190,9 +194,11 @@ public class myDemonApp extends PageObject {
     }
 
     public void scrollText() {
-        getDriver().findElement(By.xpath("//*[contains(@text,'View')]")).click();
         getDriver().findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))"
-                + ".scrollIntoView(new UiSelector()" + " .text (\""+".*appium - Testing en Español josepablosarco.wordpress.com › webdriver*."+"\").instance(0))"));
-        pageGoogle.click();
+                + ".scrollIntoView(new UiSelector()"+".textContains(\"Una introducción a Appium |\").instance(0))")).click();
+    }
+
+    public void esperar() {
+        getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 }

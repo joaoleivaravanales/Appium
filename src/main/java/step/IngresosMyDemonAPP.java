@@ -116,4 +116,9 @@ public class IngresosMyDemonAPP {
     public void mePosicionoConElScrollEnUnTextoEnEspecifico() {
         mydemonapp.scrollText();
     }
+
+    @And("Esperar esperar esperar")
+    public void esperarEsperarEsperar() {
+        mydemonapp.esperar();
+    }
 }
