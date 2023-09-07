@@ -17,7 +17,6 @@ import java.util.Map;
 
 public class myDemonApp extends PageObject {
 
-    AndroidDriver driver;
 
     @AndroidFindBy(xpath = "//android.view.ViewGroup[@content-desc=\"open menu\"]")
     protected WebElement openMenu;
@@ -191,10 +190,9 @@ public class myDemonApp extends PageObject {
     }
 
     public void scrollText() {
-        String textToScroll = "appium - Testing en Español josepablosarco.wordpress.com › webdriver";
-        MobileBy scrollable = (MobileBy) MobileBy.AndroidUIAutomator(
-                "new UiScrollable(new UiSelector().scrollIntoView(new UiSelector().textContains(\"" + textToScroll + "\")))"
-        );
-
+        getDriver().findElement(By.xpath("//*[contains(@text,'View')]")).click();
+        getDriver().findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))"
+                + ".scrollIntoView(new UiSelector()" + " .text (\""+".*appium - Testing en Español josepablosarco.wordpress.com › webdriver*."+"\").instance(0))"));
+        pageGoogle.click();
     }
 }
