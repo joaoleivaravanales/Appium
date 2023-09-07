@@ -15,7 +15,7 @@ Feature: Ingresar a Webview en Menu Lateral
     And Ingreso texto "Appium espanol" en el buscador
     And Presiono boton de busqueda "Lupa" en la pagina de google
     And Me posiciono con el scroll en un texto en especifico
-    And Esperar esperar esperar
+    Then Valido el titulo de la pantalla "Automatización de la nube de Appium"
 
     Examples:
       | URL |

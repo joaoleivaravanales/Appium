@@ -117,8 +117,8 @@ public class IngresosMyDemonAPP {
         mydemonapp.scrollText();
     }
 
-    @And("Esperar esperar esperar")
-    public void esperarEsperarEsperar() {
-        mydemonapp.esperar();
+    @Then("Valido el titulo de la pantalla {string}")
+    public void validoElTituloDeLaPantalla(String arg0) {
+        mydemonapp.validacionesDeTextos(arg0);
     }
 }

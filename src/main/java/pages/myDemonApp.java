@@ -1,6 +1,8 @@
 package pages;
 
+import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -10,13 +12,24 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.PointerInput;
+import org.openqa.selenium.interactions.Sequence;
+import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.sql.DriverManager;
+import java.time.Duration;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+
+import static net.serenitybdd.core.Serenity.getDriver;
 
 
 public class myDemonApp extends PageObject {
@@ -84,6 +97,9 @@ public class myDemonApp extends PageObject {
     @AndroidFindBy(xpath = "(//android.view.View[@text = 'appium - Testing en Español josepablosarco.wordpress.com › webdriver'])")
     protected WebElement pageGoogle;
 
+    @AndroidFindBy(xpath = "(//android.view.View[@text = 'Automatización de la nube de Appium'])")
+    protected WebElement txtTitleAut;
+
 
 
 
@@ -136,6 +152,9 @@ public class myDemonApp extends PageObject {
                 break;
             case "Appium espanol":
                 barraGoogle.sendKeys(arg0);
+                break;
+            case "Automatización de la nube de Appium":
+                Assert.assertEquals("Automatización de la nube de Appium",txtTitleAut.getText());
                 break;
 
         }
@@ -194,11 +213,19 @@ public class myDemonApp extends PageObject {
     }
 
     public void scrollText() {
+        //Metodo 2
+        //getDriver().findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))"
+        //        + ".scrollIntoView(new UiSelector().textContains(\"josepablosarco.wordpress.com\").instance(0))")).click();
+        //Metodo 2
+        //  getDriver().findElement(new AppiumBy.ByAndroidUIAutomator(
+        //         "new UiScrollable(new UiSelector().scrollable(true).instance(0))"
+        //                 + ".scrollIntoView(new UiSelector().index(23))")).click();
+        getDriver().findElements(By.xpath("//android.view.ViewGroup[@content-desc=\"webview screen\"]/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View[20]"));
+        WebElement listenin = getDriver().findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))"
+                        + ".scrollIntoView(new UiSelector().textContains(\"es.testingbot.com\").instance(0))"));
         getDriver().findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))"
-                + ".scrollIntoView(new UiSelector()"+".textContains(\"Una introducción a Appium |\").instance(0))")).click();
-    }
+                + ".scrollIntoView(new UiSelector().instance(2))"));
+        listenin.click();
 
-    public void esperar() {
-        getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 }
