@@ -1,4 +1,4 @@
-@Caso005
+@Caso005 @Android
 Feature: Realizar compra completa en aplicativo MyDemonAPP
   Scenario Outline: Realizar compra de mochila
     Given Cuando ingreso al aplicativo MyDemonAPP

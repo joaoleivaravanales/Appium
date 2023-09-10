@@ -1,4 +1,4 @@
-@Caso002
+@Caso002 @Android
 Feature: Realizar ingreso correcto a aplicativo MyDemonAPP
   Scenario Outline: Login correcto en aplicativo MyDemonAPP
     Given Cuando ingreso al aplicativo MyDemonAPP

@@ -1,5 +1,4 @@
-
-@Caso001
+@Caso001 @Android
   Feature: Realizar ingreso incorrecto a aplicativo MyDemonAPP
     Scenario Outline: Login Incorrecto en aplicativo MyDemonAPP
     Given Cuando ingreso al aplicativo MyDemonAPP

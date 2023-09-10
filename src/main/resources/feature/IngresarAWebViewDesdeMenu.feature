@@ -1,4 +1,4 @@
-@Caso003
+@Caso003 @Android
 Feature: Ingresar a Webview en Menu Lateral
   Scenario Outline: Ingresar de forma correcta a Menu opcion WebView
     Given Cuando ingreso al aplicativo MyDemonAPP
