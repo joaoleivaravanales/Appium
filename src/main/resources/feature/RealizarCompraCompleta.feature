@@ -36,7 +36,6 @@ Feature: Realizar compra completa en aplicativo MyDemonAPP
     And Valido la existencia del boton "Continue Shopping"
     And Presiono el boton de "Continue Shopping"
 
-
     Examples:
       | Username | Password | objeto | tituloObjeto | fullName | AddressOne | AddressTwo| City | StateRegion | ZipCode | Country | CardNumber | ExpirationDate |SecurityCode |
       | bob@example.com | 10203040 |mochila |Sauce Labs Backpack | Joao Leiva Ravanales |Costa Rica | Playa Ancha | Valparaiso | Valparaisoo |1000000 | Chile | 325812657568789 | 0325|123|
