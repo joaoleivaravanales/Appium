@@ -145,4 +145,74 @@ public class IngresosMyDemonAPP {
     public void ingresoDireccionCompletaEnElCampo(String arg0) {
         mydemonapp.ingresoDeDatosPersonales(arg0);
     }
+
+    @And("Ingreso ciudad en la que vives en el campo {string}")
+    public void ingresoCiudadEnLaQueVivesEnElCampo(String arg0) {
+        mydemonapp.ingresoDeDatosPersonales(arg0);
+    }
+
+    @And("Ingreso state en la que vives en el campo {string}")
+    public void ingresoStateEnLaQueVivesEnElCampo(String arg0) {
+        mydemonapp.ingresoDeDatosPersonales(arg0);
+    }
+
+    @And("Ingreso el campo de zip en {string}")
+    public void ingresoElCampoDeZipEn(String arg0) {
+        mydemonapp.ingresoDeDatosPersonales(arg0);
+    }
+
+    @And("Ingreso pais en la que vives en el campo {string}")
+    public void ingresoPaisEnLaQueVivesEnElCampo(String arg0) {
+        mydemonapp.ingresoDeDatosPersonales(arg0);
+    }
+
+    @And("Ingreso los campos de la tarjeta en {string}")
+    public void ingresoLosCamposDeLaTarjetaEn(String arg0) {
+        mydemonapp.ingresoDeDatosPersonales(arg0);
+    }
+
+    @And("Ingreso el numero de la tarjeta en {string}")
+    public void ingresoElNumeroDeLaTarjetaEn(String arg0) {
+        mydemonapp.ingresoDeDatosPersonales(arg0);
+    }
+
+    @And("Ingreso la expiracion de la tarjeta en {string}")
+    public void ingresoLaExpiracionDeLaTarjetaEn(String arg0) {
+        mydemonapp.ingresoDeDatosPersonales(arg0);
+    }
+
+    @And("Ingreso el codigo de seguridad de la tarjeta en {string}")
+    public void ingresoElCodigoDeSeguridadDeLaTarjetaEn(String arg0) {
+        mydemonapp.ingresoDeDatosPersonales(arg0);
+    }
+
+    @And("Descheckeo el check existente")
+    public void descheckeoElCheckExistente() {
+        mydemonapp.checkBoxTrueToFalse();
+    }
+
+    @And("Presiono nuevamente el check existente")
+    public void presionoNuevamenteElCheckExistente() {
+        mydemonapp.checkBoxFalseToTrue();
+    }
+
+    @And("Valido que la mochila se encuentre seleccionada {string}")
+    public void validoQueLaMochilaSeEncuentreSeleccionada(String arg0) {
+        mydemonapp.validacionesDeTextos(arg0);
+    }
+
+    @Then("Valido que te rediriga a la pantalla finalizada {string}")
+    public void validoQueTeRedirigaALaPantallaFinalizada(String arg0) {
+        mydemonapp.validacionesDeTextos(arg0);
+    }
+
+    @And("Valido el texto en la pantalla existosa de compra {string}")
+    public void validoElTextoEnLaPantallaExistosaDeCompra(String arg0) {
+        mydemonapp.validacionesDeTextos(arg0);
+    }
+
+    @And("Valido la existencia del boton {string}")
+    public void validoLaExistenciaDelBoton(String arg0) {
+        mydemonapp.validacionesDeTextos(arg0);
+    }
 }

@@ -18,8 +18,7 @@ Feature: Realizar compra completa en aplicativo MyDemonAPP
     And Ingreso state en la que vives en el campo "<StateRegion>"
     And Ingreso el campo de zip en "<ZipCode>"
     And Ingreso pais en la que vives en el campo "<Country>"
-    And Oculto el teclado del celular
-    And Presiono el boton "To Payment"
+    And Presiono el boton de "To Payment"
     And Valido el titulo de la pagina "Enter a payment Method"
     And Ingreso los campos de la tarjeta en "<fullName>"
     And Ingreso el numero de la tarjeta en "<CardNumber>"
@@ -31,7 +30,7 @@ Feature: Realizar compra completa en aplicativo MyDemonAPP
     And Valido que la mochila se encuentre seleccionada "<tituloObjeto>"
     And Presiono el boton de "Place Order"
     Then Valido que te rediriga a la pantalla finalizada "Checkout Complete"
-    And Valido el texto en la pantalla existosa de compra "Thanks you for you order"
+    And Valido el texto en la pantalla existosa de compra "Thank you for your order"
     And Valido el texto en la pantalla existosa de compra "Your new swag is on its way"
     And Valido el texto en la pantalla existosa de compra "Your order has been dispatched and will arrive as fast as the pony gallops!"
     And Valido la existencia del boton "Continue Shopping"
@@ -39,5 +38,5 @@ Feature: Realizar compra completa en aplicativo MyDemonAPP
 
 
     Examples:
-      | Username | Password | objeto | tituloObjeto | fullName | AddressOne | AddressTwo|
-      | bob@example.com | 10203040 |mochila |Sauce Labs Backpack | Joao Leiva Ravanales |Costa Rica | Playa Ancha |
+      | Username | Password | objeto | tituloObjeto | fullName | AddressOne | AddressTwo| City | StateRegion | ZipCode | Country | CardNumber | ExpirationDate |SecurityCode |
+      | bob@example.com | 10203040 |mochila |Sauce Labs Backpack | Joao Leiva Ravanales |Costa Rica | Playa Ancha | Valparaiso | Valparaisoo |1000000 | Chile | 325812657568789 | 0325|123|

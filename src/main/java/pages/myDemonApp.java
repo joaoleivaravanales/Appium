@@ -80,7 +80,7 @@ public class myDemonApp extends PageObject {
     @AndroidFindBy(xpath = "(//android.view.View[@text = 'Automatización de la nube de Appium'])")
     protected WebElement txtTitleAut;
 
-    @AndroidFindBy(xpath = "(//android.widget.TextView[@text=\"Sauce Labs Backpack\"])")
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@text='Sauce Labs Backpack'])")
     protected WebElement mochilaSeleccionada;
 
     @AndroidFindBy(xpath = "(//android.widget.TextView[@text='Add To Cart'])")
@@ -100,6 +100,58 @@ public class myDemonApp extends PageObject {
 
     @AndroidFindBy(accessibility = "Address Line 2 input field")
     protected WebElement txtDireccionDos;
+
+    @AndroidFindBy(accessibility = "City* input field")
+    protected WebElement txtCity;
+
+    @AndroidFindBy(accessibility = "State/Region input field")
+    protected WebElement txtState;
+
+    @AndroidFindBy(accessibility = "Zip Code* input field")
+    protected WebElement txtZipCode;
+
+    @AndroidFindBy(accessibility = "Country* input field")
+    protected WebElement txtCountry;
+
+    @AndroidFindBy(accessibility = "To Payment button")
+    protected WebElement btnPayment;
+
+    @AndroidFindBy(accessibility = "Card Number* input field")
+    protected WebElement txtCardNumber;
+
+    @AndroidFindBy(accessibility = "Expiration Date* input field")
+    protected WebElement txtExpirationDay;
+
+    @AndroidFindBy(accessibility = "Security Code* input field")
+    protected WebElement txtSecurityCode;
+
+    @AndroidFindBy(xpath="//android.view.ViewGroup[@content-desc=\"checkbox for My billing address is the same as my shipping address.\"]/android.view.ViewGroup/android.widget.ImageView")
+    protected WebElement checkfalseCheckout;
+
+    @AndroidFindBy(xpath = "//android.view.ViewGroup[@content-desc=\"checkbox for My billing address is the same as my shipping address.\"]/android.view.ViewGroup")
+    protected WebElement checktrueCheckOut;
+
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@text='Review Order'])")
+    protected WebElement btnReviewOrder;
+
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@text='Place Order'])")
+    protected WebElement btnPlaceOrder;
+
+    @AndroidFindBy(xpath ="(//android.widget.TextView[@text='Checkout Complete'])")
+    protected WebElement chckoutComplete;
+
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@text='Thank you for your order'])")
+    protected WebElement txtThanksForYouOrder;
+
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@text='Your new swag is on its way'])")
+    protected WebElement txtNewSag;
+
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@text=' Your order has been dispatched and will arrive as fast as the pony gallops!'])")
+    protected WebElement txtNewOrder;
+
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@text='Continue Shopping'])")
+    protected WebElement btnContinueShopping;
+
 
 
 
@@ -136,6 +188,19 @@ public class myDemonApp extends PageObject {
             case "Proceed to Checkout":
                 btnProceed.click();
                 break;
+            case "To Payment":
+                btnPayment.click();
+                break;
+            case "Review Order":
+                btnReviewOrder.click();
+                break;
+            case "Place Order":
+                btnPlaceOrder.click();
+                break;
+            case "Continue Shopping":
+                btnContinueShopping.click();
+                break;
+
         }
     }
 
@@ -170,6 +235,21 @@ public class myDemonApp extends PageObject {
                 break;
             case "Sauce Labs Backpack":
                 Assert.assertEquals("Sauce Labs Backpack",mochilaSeleccionada.getText());
+                break;
+            case "Checkout Complete":
+                Assert.assertEquals("Checkout Complete",chckoutComplete.getText());
+                break;
+            case "Thank you for your order":
+                Assert.assertEquals("Thank you for your order",txtThanksForYouOrder.getText());
+                break;
+            case "Your new swag is on its way":
+                Assert.assertEquals("Your new swag is on its way",txtNewSag.getText());
+                break;
+            case "Your order has been dispatched and will arrive as fast as the pony gallops!":
+                Assert.assertEquals(" Your order has been dispatched and will arrive as fast as the pony gallops!", txtNewOrder.getText());
+                break;
+            case "Continue Shopping":
+                btnContinueShopping.isDisplayed();
                 break;
         }
     }
@@ -262,6 +342,35 @@ public class myDemonApp extends PageObject {
             case "Playa Ancha":
                 txtDireccionDos.sendKeys(arg0 + " calle costa Rica");
                 break;
+            case "Valparaiso":
+                txtCity.sendKeys(arg0);
+                break;
+            case "Valparaisoo":
+                txtState.sendKeys(arg0);
+                break;
+            case "1000000":
+                txtZipCode.sendKeys(arg0);
+                break;
+            case "Chile":
+                txtCountry.sendKeys(arg0);
+                break;
+            case "325812657568789":
+                txtCardNumber.sendKeys(arg0);
+                break;
+            case "0325":
+                txtExpirationDay.sendKeys(arg0);
+                 break;
+            case "123":
+                txtSecurityCode.sendKeys(arg0);
+                break;
         }
+    }
+
+    public void checkBoxTrueToFalse() {
+        checkfalseCheckout.click();
+    }
+
+    public void checkBoxFalseToTrue() {
+        checktrueCheckOut.click();
     }
 }
