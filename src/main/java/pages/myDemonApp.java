@@ -1,35 +1,15 @@
 package pages;
 
-import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumBy;
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileBy;
-import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.cucumber.datatable.DataTable;
-import net.serenitybdd.core.Serenity;
 import net.serenitybdd.core.pages.PageObject;
-import net.serenitybdd.core.pages.WebElementFacade;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.PointerInput;
-import org.openqa.selenium.interactions.Sequence;
-import org.openqa.selenium.remote.RemoteWebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.sql.DriverManager;
-import java.time.Duration;
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
-import static net.serenitybdd.core.Serenity.getDriver;
 
 
 public class myDemonApp extends PageObject {
@@ -100,6 +80,26 @@ public class myDemonApp extends PageObject {
     @AndroidFindBy(xpath = "(//android.view.View[@text = 'Automatización de la nube de Appium'])")
     protected WebElement txtTitleAut;
 
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@text=\"Sauce Labs Backpack\"])")
+    protected WebElement mochilaSeleccionada;
+
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@text='Add To Cart'])")
+    protected WebElement btnAddToCart;
+
+    @AndroidFindBy(xpath = "//android.view.ViewGroup[@content-desc=\"cart badge\"]/android.widget.TextView")
+    protected WebElement carritoNumero;
+
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@text='Proceed To Checkout'])")
+    protected WebElement btnProceed;
+
+    @AndroidFindBy (accessibility = "Full Name* input field")
+    protected WebElement txtNombreCompleto;
+
+    @AndroidFindBy (accessibility = "Address Line 1* input field")
+    protected WebElement txtDireccionUna;
+
+    @AndroidFindBy(accessibility = "Address Line 2 input field")
+    protected WebElement txtDireccionDos;
 
 
 
@@ -123,6 +123,18 @@ public class myDemonApp extends PageObject {
                 break;
             case "Lupa":
                 btnLupaGoogle.click();
+                break;
+            case "mochila":
+                mochilaSeleccionada.click();
+                break;
+            case "Add to Cart":
+                btnAddToCart.click();
+                break;
+            case "Sauce Labs Backpack":
+                Assert.assertEquals("Sauce Labs Backpack",mochilaSeleccionada.getText());
+                break;
+            case "Proceed to Checkout":
+                btnProceed.click();
                 break;
         }
     }
@@ -156,7 +168,9 @@ public class myDemonApp extends PageObject {
             case "Automatización de la nube de Appium":
                 Assert.assertEquals("Automatización de la nube de Appium",txtTitleAut.getText());
                 break;
-
+            case "Sauce Labs Backpack":
+                Assert.assertEquals("Sauce Labs Backpack",mochilaSeleccionada.getText());
+                break;
         }
     }
 
@@ -227,5 +241,27 @@ public class myDemonApp extends PageObject {
                 + ".scrollIntoView(new UiSelector().instance(2))"));
         listenin.click();
 
+    }
+
+    public void validacionDeCarritoUnObjeto(){
+        Assert.assertEquals("1",carritoNumero.getText());
+    }
+
+    public void presionoCarritoDeCompras() {
+        carritoNumero.click();
+    }
+
+    public void ingresoDeDatosPersonales(String arg0) {
+        switch (arg0){
+            case "Joao Leiva Ravanales":
+                txtNombreCompleto.sendKeys(arg0);
+                break;
+            case "Costa Rica":
+                txtDireccionUna.sendKeys(arg0 + " 504 Playa Ancha");
+                break;
+            case "Playa Ancha":
+                txtDireccionDos.sendKeys(arg0 + " calle costa Rica");
+                break;
+        }
     }
 }

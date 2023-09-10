@@ -1,29 +1,17 @@
 package step;
 
-
 import io.appium.java_client.android.AndroidDriver;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import net.thucydides.core.requirements.reports.ScenarioOutcome;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import pages.myDemonApp;
-
-import java.io.Console;
 import java.net.MalformedURLException;
-import java.util.List;
-import java.util.Map;
-import java.util.NoSuchElementException;
-import java.util.concurrent.TimeUnit;
 
 
 public class IngresosMyDemonAPP {
 
-    public static AndroidDriver driver;
     myDemonApp mydemonapp = new myDemonApp();
 
 
@@ -120,5 +108,41 @@ public class IngresosMyDemonAPP {
     @Then("Valido el titulo de la pantalla {string}")
     public void validoElTituloDeLaPantalla(String arg0) {
         mydemonapp.validacionesDeTextos(arg0);
+    }
+
+    @When("presiono el objeto que deseo comprar {string}")
+    public void presionoElObjetoQueDeseoComprar(String arg0) {
+        mydemonapp.opcionesDePresionar(arg0);
+    }
+
+    @And("Valido el nombre del objeto seleccionado {string}")
+    public void validoElNombreDelObjetoSeleccionado(String arg0) {
+        mydemonapp.validacionesDeTextos(arg0);
+    }
+
+    @And("Visualizo el carrito que se haya agregado")
+    public void visualizoElCarritoQueSeHayaAgregado() {
+        mydemonapp.validacionDeCarritoUnObjeto();
+    }
+
+    @And("Presiono el carrito de compras")
+    public void presionoElCarritoDeCompras() {
+        mydemonapp.presionoCarritoDeCompras();
+    }
+
+    @And("Valido que se visualice el objeto seleccionado {string}")
+    public void validoQueSeVisualiceElObjetoSeleccionado(String arg0) {
+        mydemonapp.validacionesDeTextos(arg0);
+    }
+
+    @And("Ingreso nombre completo en el campo {string}")
+    public void ingresoNombreCompletoEnElCampo(String arg0) {
+        mydemonapp.ingresoDeDatosPersonales(arg0);
+
+    }
+
+    @And("Ingreso direccion completa en el campo {string}")
+    public void ingresoDireccionCompletaEnElCampo(String arg0) {
+        mydemonapp.ingresoDeDatosPersonales(arg0);
     }
 }
