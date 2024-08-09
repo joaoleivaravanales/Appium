@@ -215,4 +215,9 @@ public class IngresosMyDemonAPP {
     public void validoLaExistenciaDelBoton(String arg0) {
         mydemonapp.validacionesDeTextos(arg0);
     }
+
+    @Then("valido el body de la pagina FingerPrint")
+    public void validoElBodyDeLaPaginaFingerPrint(String arg0) {
+        mydemonapp.validacionesDeTextos(arg0);
+    }
 }

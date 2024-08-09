@@ -3,18 +3,11 @@ package pages;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.cucumber.datatable.DataTable;
-import io.cucumber.java.After;
-import io.cucumber.java.Scenario;
 import net.serenitybdd.core.pages.PageObject;
-import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -53,6 +46,15 @@ public class myDemonApp extends PageObject {
 
     @AndroidFindBy(accessibility = "Login button")
     protected WebElement btnLoginPage;
+
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@text='About'])")
+    protected WebElement btnAboutMenu;
+
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@text='FingerPrint'])")
+    protected WebElement btnFingerMenu;
+
+    @AndroidFindBy(xpath = "(//android.widget.Button[@text='OK'])")
+    protected WebElement btnOKFinger;
 
     @AndroidFindBy(xpath = "(//android.widget.TextView[@text='Products'])")
     protected WebElement txtProduct;
@@ -157,8 +159,27 @@ public class myDemonApp extends PageObject {
     @AndroidFindBy(xpath = "(//android.widget.TextView[@text=' Your order has been dispatched and will arrive as fast as the pony gallops!'])")
     protected WebElement txtNewOrder;
 
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@text='About'])")
+    protected WebElement txtAbout;
+
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@text='Not found'])")
+    protected WebElement txtNotFound;
+
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@text='Api Calls'])")
+    protected WebElement btnApiCall;
+
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@text='404'])")
+    protected WebElement btnCuatroCeroCuatro;
+
     @AndroidFindBy(xpath = "(//android.widget.TextView[@text='Continue Shopping'])")
     protected WebElement btnContinueShopping;
+
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@text='Biometrics is or not supported or not enabled on your device. Please check your device or your settings.'])")
+    protected WebElement txtBiometrics;
+
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@text='Normally this screen would be behind a secure login, but for demo purposes this screen has been put in the menu by default.'])")
+    protected WebElement txtBodyFinger;
+
 
 
 
@@ -208,7 +229,21 @@ public class myDemonApp extends PageObject {
             case "Continue Shopping":
                 btnContinueShopping.click();
                 break;
-
+            case "About":
+                btnAboutMenu.click();
+                break;
+            case "FingerPrint":
+                btnFingerMenu.click();
+                break;
+            case "OK":
+                btnOKFinger.click();
+                break;
+            case "API CALL":
+                btnApiCall.click();
+                break;
+            case "404":
+                btnCuatroCeroCuatro.click();
+                break;
         }
     }
 
@@ -258,6 +293,18 @@ public class myDemonApp extends PageObject {
                 break;
             case "Continue Shopping":
                 btnContinueShopping.isDisplayed();
+                break;
+            case "About":
+                Assert.assertEquals("About",txtAbout.getText());
+                break;
+            case "Biometrics":
+                Assert.assertEquals("Biometrics is or not supported or not enabled on your device. Please check your device or your settings.",txtBiometrics.getText());
+                break;
+            case "Normally this screen would be behind a secure login, but for demo purposes this screen has been put in the menu by default.":
+                Assert.assertEquals("Normally this screen would be behind a secure login, but for demo purposes this screen has been put in the menu by default.", txtBodyFinger.getText());
+                break;
+            case "Not found":
+                Assert.assertEquals("Not found", txtNotFound.getText());
                 break;
         }
     }

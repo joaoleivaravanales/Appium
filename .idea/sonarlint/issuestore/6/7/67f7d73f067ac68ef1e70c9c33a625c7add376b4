@@ -1,0 +1,18 @@
+
+r
+java:S1192Ö"TDefine a constant instead of duplicating this literal "Sauce Labs Backpack" 4 times.(İÈè°8ùÒì¿Ã1
+i
+java:S1192Ä"FDefine a constant instead of duplicating this literal "Login" 3 times.(¸ÿËÙüÿÿÿÿ8úÒì¿Ã1
+i
+java:S1192è"FDefine a constant instead of duplicating this literal "About" 3 times.(Ñ•ì«ùÿÿÿÿ8úÒì¿Ã1
+n	java:S117Ê"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Í‚ªÿ8üÒì¿Ã1
+n	java:S117ß"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Í‚ªÿ8üÒì¿Ã1
+n	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(±®Áıÿÿÿÿ8ÿÒì¿Ã1
+D	java:S131À""Add a default case to this switch.(¯Ë•Âøÿÿÿÿ8¹Õì¿Ã1
+D	java:S131û""Add a default case to this switch.(¯Ë•Âøÿÿÿÿ8ÚÕì¿Ã1
+H	java:S106Ï"+Replace this use of System.out by a logger.(ôËå8ÉÕì¿Ã1
+H	java:S106ä"+Replace this use of System.out by a logger.(ôËå8ĞÕì¿Ã1
+^	java:S125ï"<This block of commented-out lines of code should be removed.(¡Çòåıÿÿÿÿ8ÔÕì¿Ã1
+D	java:S131†""Add a default case to this switch.(¯Ë•Âøÿÿÿÿ8‹Íñ¿Ã1
+H
+java:S5960×"+Remove this assertion from production code.(†²Ğ8àÕì¿Ã1
